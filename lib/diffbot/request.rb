@@ -7,9 +7,12 @@ module Diffbot
 
     # Public: Initialize a new request to the API.
     #
-    # token - The API token for Diffbot.
-    def initialize(token)
+    # token     - The API token for Diffbot.
+    # test_mode - Whether requests are in test mode or not. This is passed to
+    #             Excon so we can mock connections.
+    def initialize(token, test_mode=false)
       @token = token
+      @test_mode = test_mode
     end
 
     # Public: Perform an HTTP request against Diffbot's API.
@@ -26,8 +29,7 @@ module Diffbot
       request_options = build_request(method, query)
       yield request_options if block_given?
 
-      request  = Excon.new(endpoint)
-
+      request = Excon.new(endpoint)
       request.request(request_options)
     end
 
@@ -39,7 +41,7 @@ module Diffbot
     # Returns a Hash.
     def build_request(method, query_params={})
       query   = { token: token }.merge(query_params)
-      request = { query: query, method: method, headers: {} }
+      request = { query: query, method: method, headers: {}, mock: @test_mode }
 
       if Diffbot.instrumentor
         request.update(
