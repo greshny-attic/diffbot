@@ -34,6 +34,15 @@ module Diffbot
     @article_defaults
   end
 
+  # Public: Reset the configuration to the defaults. Useful for testing.
+  #
+  # Returns nil.
+  def self.reset!
+    @article_defaults = nil
+    @token = nil
+    @instrumentor = nil
+  end
+
   class << self
     # Public: Your Diffbot API token.
     attr_accessor :token

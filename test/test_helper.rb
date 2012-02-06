@@ -9,4 +9,7 @@ rescue LoadError
   # you want :P
 end
 
-Diffbot::Request.testing = true
+MiniTest::Unit::TestCase.add_setup_hook do
+  Diffbot::Request.testing = true
+  Diffbot.reset!
+end
