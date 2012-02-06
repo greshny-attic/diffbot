@@ -1,5 +1,4 @@
 require "test_helper"
-require "diffbot/coercible_hash"
 
 describe Diffbot::CoercibleHash do
   module Foo
