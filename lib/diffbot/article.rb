@@ -1,3 +1,4 @@
+require "yajl"
 require "diffbot"
 
 # Representation of an article (ie a blog post or similar). This class offers

@@ -1,3 +1,5 @@
+require "excon"
+
 module Diffbot
   class Request
     # The API token for Diffbot.

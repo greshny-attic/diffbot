@@ -1,10 +1,8 @@
-require "excon"
-require "stringio"
-require "yajl"
 require "hashie/trash"
-
+require "diffbot/coercible_hash"
 require "diffbot/request"
 require "diffbot/article"
+require "diffbot/frontpage"
 
 module Diffbot
   # Public: Set global options. This is a nice API to group calls to the Diffbot
