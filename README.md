@@ -2,6 +2,12 @@
 
 This is a ruby client for the [Diffbot](http://diffbot.com) API.
 
+## Install
+
+Get the latest version from RubyGems:
+
+    $ gem install diffbot
+
 ## Global Options
 
 You can pass some settings to Diffbot like this:
