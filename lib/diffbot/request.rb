@@ -2,6 +2,14 @@ require "excon"
 
 module Diffbot
   class Request
+    class << self
+      # Public: Whether we are in test mode or not (so we stub out HTTP calls).
+      # Defaults to false.
+      attr_accessor :testing
+    end
+
+    self.testing = false
+
     # The API token for Diffbot.
     attr_reader :token
 
@@ -10,7 +18,7 @@ module Diffbot
     # token     - The API token for Diffbot.
     # test_mode - Whether requests are in test mode or not. This is passed to
     #             Excon so we can mock connections.
-    def initialize(token, test_mode=false)
+    def initialize(token, test_mode=self.class.testing)
       @token = token
       @test_mode = test_mode
     end

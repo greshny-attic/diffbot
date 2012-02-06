@@ -2,7 +2,7 @@ require "test_helper"
 
 describe Diffbot::Request do
   subject do
-    Diffbot::Request.new("DUMMY_TOKEN", true)
+    Diffbot::Request.new("DUMMY_TOKEN")
   end
 
   describe "#build_request" do

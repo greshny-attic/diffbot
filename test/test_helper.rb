@@ -8,3 +8,5 @@ rescue LoadError
   # Oh well, no colorized tests for you. You can always use minitest/pride if
   # you want :P
 end
+
+Diffbot::Request.testing = true
