@@ -9,6 +9,8 @@ module Diffbot
     #
     # url      - The article URL.
     # token    - The API token for Diffbot.
+    # parser   - The callable object that will parse the raw output from the
+    #            API. Defaults to Yajl::Parser.method(:parse).
     # defaults - The default request options. See Diffbot.article_defaults.
     #
     # Yields the request configuration.
@@ -25,7 +27,7 @@ module Diffbot
     #   end
     #
     # Returns a Diffbot::Article.
-    def self.fetch(url, token=Diffbot.token, defaults=Diffbot.article_defaults)
+    def self.fetch(url, token=Diffbot.token, parser=Yajl::Parser.method(:parse), defaults=Diffbot.article_defaults)
       params = defaults.dup
       yield params if block_given?
 
@@ -34,7 +36,7 @@ module Diffbot
         req[:query][:url] = url
       end
 
-      new(Yajl::Parser.parse(response.body))
+      new(parser.call(response.body))
     end
 
     # The API endpoint where requests should be made.
