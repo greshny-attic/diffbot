@@ -19,6 +19,9 @@ The list of supported settings is:
   you don't specify it manually (see below).
 * `instrumentor`: An object that matches the [ActiveSupport::Notifications][1]
   API, which will be used to trace network events. None is used by default.
+* `article_defaults`: Pass a block to this method to configure the global
+  request settings used for Diffbot::Article requests. See below the options
+  supported.
 
 [1]: http://api.rubyonrails.org/classes/ActiveSupport/Notifications.html
 
@@ -81,20 +84,42 @@ frontpage.icon
 frontpage.items #=> An array of Diffbot::Item instances
 ```
 
+The fields you can extract from a Frontpage are:
+
+* `title`: The title of the page.
+* `icon`: The favicon of the page.
+* `source_type`: What kind of page this is.
+* `source_url`: The URL of the page.
+* `items`: The list of `Diffbot::Item` representing each item on the page.
+
 The instances of `Diffbot::Item` have the following fields:
 
 * `id`: Unique identifier for this item.
-* `link`: Extracted permalink of the item (if applicable).
 * `title`: Title of the item.
-* `text_summary`: A plain-text summary of the item.
+* `link`: Extracted permalink of the item (if applicable).
 * `description`: innerHTML content of the item.
-* `pub_date`: Timestamp when item was detected on page.
+* `summary`: A plain-text summary of the item.
+* `pub_date`: Date when item was detected on page.
 * `type`: The type of item, according to Diffbot. One of: `IMAGE`, `LINK`,
   `STORY`, `CHUNK`.
 * `img`: The main image extracted from this item.
 * `xroot`: XPath of where the item was found on the page.
-* `sp`: A Float between 0.0 and 1.0 indicating the probability this item is
-  spam/an advertisement.
-* `sr`: A Float between 1.0 and 5.0 indicating the quality score of the item.
-* `fresh`: The percentage of the item that has changed compared to the previous
-  crawl.
+* `cluster`: XPath of the cluster of items where this item was found.
+* `stats`: An object with the following attributes:
+  * `spam_score`: A Float between 0.0 and 1.0 indicating the probability this
+    item is spam/an advertisement.
+  * `static_rank`: A Float between 1.0 and 5.0 indicating the quality score of
+    the item.
+  * `fresh`: The percentage of the item that has changed compared to the
+    previous crawl.
+
+## TODO
+
+* Implement the Follow API.
+* Add tests for Article and Frontpage requests.
+* Add a Frontpage.crawl method that given the URL of a frontpage, it will fetch
+  the article for each item in the page.
+
+## License
+
+This is published under an MIT License, see LICENSE for further details.
