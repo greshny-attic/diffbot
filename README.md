@@ -36,7 +36,7 @@ The list of supported settings is:
 In order to fetch an article, do this:
 
 ``` ruby
-require "diffbot/article"
+require "diffbot"
 
 article = Diffbot::Article.fetch(article_url, diffbot_token)
 
@@ -80,7 +80,7 @@ end
 In order to fetch and analyze a front page, do this:
 
 ``` ruby
-require "diffbot/frontpage"
+require "diffbot"
 
 frontpage = Diffbot::Frontpage.fetch(url, diffbot_token)
 

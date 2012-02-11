@@ -1,6 +1,4 @@
 require "yajl"
-require "diffbot"
-require "diffbot/coercible_hash"
 
 module Diffbot
   # Representation of an article (ie a blog post or similar). This class offers

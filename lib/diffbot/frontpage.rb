@@ -1,5 +1,4 @@
 require "nokogiri"
-require "diffbot"
 require "diffbot/item"
 
 module Diffbot
