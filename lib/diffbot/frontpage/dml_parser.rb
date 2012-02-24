@@ -31,10 +31,10 @@ class Diffbot::Frontpage::DmlParser
     attrs = {}
 
     info = dml % "info"
-    attrs["title"]      = (info % "title").text
-    attrs["icon"]       = (info % "icon").text
-    attrs["sourceType"] = (info % "sourceType").text
-    attrs["sourceURL"]  = (info % "sourceURL").text
+    attrs["title"]      = extract_text(info, "title")
+    attrs["icon"]       = extract_text(info, "icon")
+    attrs["sourceType"] = extract_text(info, "sourceType")
+    attrs["sourceURL"]  = extract_text(info, "sourceURL")
 
     items = dml / "item"
     attrs["items"] = items.map do |item|
@@ -44,9 +44,18 @@ class Diffbot::Frontpage::DmlParser
     attrs
   end
 
+  def extract_text(node, selector)
+    tag = node % selector
+    tag && tag.text
+  end
+
   # Parser that takes the XML from a particular item from the XML returned from
   # the frontpage API.
   class ItemParser
+    def self.parse(node)
+      node = Nokogiri(node)
+    end
+
     # The root element of each item.
     attr_reader :item
 
