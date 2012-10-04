@@ -54,6 +54,9 @@ module Diffbot
     # Public: Title of the article.
     property :title
 
+    # Public: Number of pages of the article.
+    property :numPages
+
     # Public: Author (or Authors) ofthe article.
     property :author
 
