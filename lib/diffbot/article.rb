@@ -150,6 +150,7 @@ module Diffbot
 
     property :nextPage
     property :resolved_url
+    property :type
 
     class RequestParams < Hashie::Trash
       # Public: Set to true to return HTML instead of plain-text.
