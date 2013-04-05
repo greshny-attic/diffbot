@@ -67,6 +67,7 @@ module Diffbot
       property :type
       property :link
       property :primary, default: false
+      property :caption
     end
 
     # Public: List of media items related to the articles. Each item is an
