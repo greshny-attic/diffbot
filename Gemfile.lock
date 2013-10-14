@@ -1,0 +1,26 @@
+PATH
+  remote: .
+  specs:
+    diffbot (0.1.1)
+      excon
+      hashie
+      nokogiri (~> 1.5.0)
+      yajl-ruby
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    excon (0.20.1)
+    hashie (2.0.3)
+    minitest (4.7.0)
+    nokogiri (1.5.10)
+    rake (10.0.4)
+    yajl-ruby (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  diffbot!
+  minitest
+  rake
