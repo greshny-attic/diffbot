@@ -9,7 +9,13 @@ rescue LoadError
   # you want :P
 end
 
-MiniTest::Unit::TestCase.add_setup_hook do
-  Diffbot::Request.testing = true
-  Diffbot.reset!
+module MiniTest::DiffbotPlugin
+  def before_setup
+    Diffbot::Request.testing = true
+    Diffbot.reset!
+  end
+end
+
+class MiniTest::Unit::TestCase
+  include MiniTest::DiffbotPlugin
 end

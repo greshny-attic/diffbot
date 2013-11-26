@@ -8,7 +8,7 @@ PATH
       yajl-ruby
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     excon (0.20.1)
     hashie (2.0.3)

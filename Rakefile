@@ -10,6 +10,7 @@ end
 Rake::TestTask.new do |t|
   t.pattern = "test/*_test.rb"
   t.verbose = true
+  t.libs << 'test'
 end
 
 task default: :test
