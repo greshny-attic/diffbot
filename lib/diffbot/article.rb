@@ -103,6 +103,14 @@ module Diffbot
     # Public: The favicon of the page where this article was extracted from.
     property :icon
 
+    property :date_created
+
+    property :cid
+
+    property :categories
+
+    property :supertags
+
     class Stats < Hashie::Trash
       property :fetch_time, from: :fetchTime
       property :confidence
