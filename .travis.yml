@@ -2,6 +2,6 @@ language: ruby
 rvm:
   - 1.9.2
   - 1.9.3
-  - rbx-19mode
+  - 2.0.0
 env:
   - RUBYOPT="$RUBYOPT -Itest"

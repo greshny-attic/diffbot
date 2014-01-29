@@ -1,6 +1,6 @@
 # Diffbot
 
-This is a ruby client for the [Diffbot](http://diffbot.com) API.
+This is a ruby client for the [Diffbot](http://diffbot.com) API. [![Build Status](https://travis-ci.org/greshny/diffbot.png?branch=master)](https://travis-ci.org/greshny/diffbot)
 
 ## Install
 
