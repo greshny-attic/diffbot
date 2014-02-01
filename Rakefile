@@ -1,5 +1,6 @@
 require "rake/testtask"
 require "rubygems/package_task"
+require "bundler/gem_tasks"
 
 gem_spec = eval(File.read("./diffbot.gemspec")) rescue nil
 Gem::PackageTask.new(gem_spec) do |pkg|
