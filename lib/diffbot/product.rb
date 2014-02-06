@@ -53,9 +53,6 @@ module Diffbot
 
     property :type
 
-    property :offer_price_details, from: :offerPriceDetails
-
-
     # Products array
     property :products
     coerce_property :products, collection: Items::Product

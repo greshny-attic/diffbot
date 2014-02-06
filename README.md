@@ -119,6 +119,48 @@ The instances of `Diffbot::Item` have the following fields:
   * `fresh`: The percentage of the item that has changed compared to the
     previous crawl.
 
+## Products
+
+In order to fetch a product, do this:
+
+``` ruby
+require "diffbot"
+
+product = Diffbot::Product.fetch(article_url, diffbot_token)
+
+# Now you can inspect the result:
+product.products
+product.type
+product.url
+# etc. See below for the full list of available response attributes.
+```
+
+This is a list of all the fields returned by the `Diffbot::Product.fetch` call:
+
+* `breadcrumb`: an array of link URLs and text from page breadcrumbs
+  * `name`: text
+  * `link`: an URL
+* `date_created`: date of publishing product
+* `type`: response type
+* `products`: array of products
+  * `title`: name of the product
+  * `description`: description, if available, of the product
+  * `offer_price`: identified offer or actual/'final' price
+  * `product_id`: unique product's id
+  * `availability`: item's availability, either true or false
+  * `offer_price_details`: price details
+    * `amount`:
+    * `text`:
+    * `symbol`:
+  * `media`: array of media items (images or videos) of the product.
+    * `primary`: only images, returns `true` if image is identified as primary
+    * `link`: link to image or video content.
+    * `caption`: caption for the image.
+    * `type`: type of media identified (image or video).
+    * `height`: image height, in pixels.
+    * `width`: image width, in pixels.
+    * `xpath`: full document Xpath to the media item.
+
 ## TODO
 
 * Implement the Follow API.
