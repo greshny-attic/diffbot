@@ -3,6 +3,7 @@ require "diffbot/coercible_hash"
 require "diffbot/request"
 require "diffbot/article"
 require "diffbot/frontpage"
+require "diffbot/product"
 
 module Diffbot
   # Public: Set global options. This is a nice API to group calls to the Diffbot
@@ -34,10 +35,29 @@ module Diffbot
     @article_defaults
   end
 
+  # Public: Configure the default request parameters for Product requests. See
+  # Product::RequestParams documentation for the specific configuration values
+  # you can set.
+  #
+  # Yields the default Product::RequestParams object.
+  #
+  # Returns the default Product::RequestParams object.
+  def self.product_defaults
+    if block_given?
+      @product_defaults = Product::RequestParams.new
+      yield @product_defaults
+    else
+      @product_defaults ||= Product::RequestParams.new
+    end
+
+    @product_defaults
+  end
+
   # Public: Reset the configuration to the defaults. Useful for testing.
   #
   # Returns nil.
   def self.reset!
+    @product_defaults = nil
     @article_defaults = nil
     @token = nil
     @instrumentor = nil
