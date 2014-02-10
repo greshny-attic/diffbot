@@ -101,7 +101,7 @@ module Diffbot
     # caption      - Diffbot-determined best caption for the image, if detected.
     # primary      - Returns "true" if image is identified as primary.
     property :images
-    coerce_property :images, class: ImageItem
+    coerce_property :images, collection: ImageItem
 
     # Public: The raw text of the article, without formatting.
     property :text
@@ -148,7 +148,7 @@ module Diffbot
     # pixel_width  - Video width, in pixels, if accessible.
     # primary      - Returns "true" if the video is identified as primary.
     property :videos
-    coerce_property :videos, class: VideoItem
+    coerce_property :videos, collection: VideoItem
 
     class Stats < Hashie::Trash
       property :fetch_time, from: :fetchTime
