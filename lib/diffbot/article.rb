@@ -63,6 +63,10 @@ module Diffbot
     # Public: Date of the article (as a string).
     property :date
 
+    # Returns the (spoken/human) language of the submitted URL, using two-letter
+    # ISO 639-1 nomenclature.
+    property :human_language, from: :humanLanguage
+
     class MediaItem < Hashie::Trash
       property :type
       property :link
@@ -79,6 +83,25 @@ module Diffbot
     #           representative media for this article.
     property :media
     coerce_property :media, collection: MediaItem
+
+    class ImageItem < Hashie::Trash
+      property :url
+      property :pixel_height, from: :pixelHeight
+      property :pixel_width,  from: :pixelWidth
+      property :caption
+      property :primary
+    end
+
+    # Public: Array of images, if present within the article body.
+    # object with the following attributes
+    #
+    # url          - Direct (fully resolved) link to image.
+    # pixel_height - Image height, in pixels.
+    # pixel_weight - Image width, in pixels.
+    # caption      - Diffbot-determined best caption for the image, if detected.
+    # primary      - Returns "true" if image is identified as primary.
+    property :images
+    coerce_property :images, class: ImageItem
 
     # Public: The raw text of the article, without formatting.
     property :text
@@ -110,6 +133,22 @@ module Diffbot
     property :categories
 
     property :supertags
+
+    class VideoItem < Hashie::Trash
+      property :url
+      property :pixel_height, from: :pixelHeight
+      property :pixel_width,  from: :pixelWidth
+      property :primary
+    end
+    # Public: Array of videos, if present within the article body
+    # object with the following attributes
+    #
+    # url          - Direct (fully resolved) link to the video content.
+    # pixel_height - Video height, in pixels, if accessible.
+    # pixel_width  - Video width, in pixels, if accessible.
+    # primary      - Returns "true" if the video is identified as primary.
+    property :videos
+    coerce_property :videos, class: VideoItem
 
     class Stats < Hashie::Trash
       property :fetch_time, from: :fetchTime
@@ -157,7 +196,9 @@ module Diffbot
     #     req.summary = true
     #   end
 
-    property :nextPage
+    # Number of pages automatically concatenated to form the text or html response.
+    property :num_pages, from: :numPages
+    property :next_page, from: :nextPage
     property :resolved_url
     property :type
 

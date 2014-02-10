@@ -59,6 +59,19 @@ This is a list of all the fields returned by the `Diffbot::Article.fetch` call:
   the HTML option in the request.
 * `tags`: A list of tags/keywords extracted from the article.
 * `xpath`: The XPath at which this article was found in the page.
+* `human_language`: Returns the (spoken/human) language of the submitted URL, using two-letter ISO 639-1 nomenclature.
+* `num_pages`: Number of pages automatically concatenated to form the text or html response.
+* `images`: Array of images, if present within the article body.
+  * `url`: Direct (fully resolved) link to image.
+  * `pixel_height`: Image height, in pixels.
+  * `pixel_width`: Image width, in pixels.
+  * `caption`: Diffbot-determined best caption for the image, if detected.
+  * `primary`: Returns 'true' if image is identified as primary.
+* `videos`: Array of videos, if present within the article body.
+  * `url`: Direct (fully resolved) link to the video content.
+  * `pixel_height`: Video height, in pixels, if accessible.
+  * `pixel_width`: Video width, in pixels, if accessible.
+  * `primary`: Returns "true" if the video is identified as primary.
 
 ### Options
 
