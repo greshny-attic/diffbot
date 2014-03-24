@@ -62,6 +62,9 @@ module Diffbot
 
     # Public: Date of the article (as a string).
     property :date
+    
+    # Public: Meta tags of the article
+    property :meta
 
     # Returns the (spoken/human) language of the submitted URL, using two-letter
     # ISO 639-1 nomenclature.
@@ -222,6 +225,7 @@ module Diffbot
       # Defaults to nil.
       #
       # If enabled, sets the `meta` key in the `Diffbot::Article`.
+      property :meta
 
       # Public: Set to true to generate tags for the extracted story.
       #
