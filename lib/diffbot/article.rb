@@ -216,6 +216,12 @@ module Diffbot
       #
       # If enabled, it will change the `html` key in the `Diffbot::Article`.
       property :dontStripAds, from: :dont_strip_ads
+      
+      # Public: Set to true to return meta tags.
+      #
+      # Defaults to nil.
+      #
+      # If enabled, sets the `meta` key in the `Diffbot::Article`.
 
       # Public: Set to true to generate tags for the extracted story.
       #
