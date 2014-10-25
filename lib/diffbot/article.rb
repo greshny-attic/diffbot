@@ -198,7 +198,7 @@ module Diffbot
 
     # Number of pages automatically concatenated to form the text or html response.
     property :num_pages, from: :numPages
-    property :next_page, from: :nextPage
+    property :next_pages, from: :nextPages
     property :resolved_url
     property :type
 
