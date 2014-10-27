@@ -1,6 +1,8 @@
 # Diffbot
 
 This is a ruby client for the [Diffbot](http://diffbot.com) API. [![Build Status](https://travis-ci.org/greshny/diffbot.png?branch=master)](https://travis-ci.org/greshny/diffbot)
+[![Code Climate](https://codeclimate.com/github/greshny/diffbot/badges/gpa.svg)](https://codeclimate.com/github/greshny/diffbot)
+[![Test Coverage](https://codeclimate.com/github/greshny/diffbot/badges/coverage.svg)](https://codeclimate.com/github/greshny/diffbot)
 
 ## Install
 
