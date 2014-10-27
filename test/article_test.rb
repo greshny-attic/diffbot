@@ -3,11 +3,12 @@ require "uri"
 
 describe Diffbot::Article do
   describe ".fetch" do
+    
     before do
       path = URI.parse(Diffbot::Article.endpoint).path
 
       Excon.stub(method: :get, path: path) do |params|
-        body = { title: "The Title" }
+        body = { title: "The Title", nextPages: ["http://example.org/page2"] }
         body[:tags] = %w(tag1 tag2) if params[:query]["tags"]
         body = Yajl::Encoder.encode(body)
 
@@ -23,6 +24,7 @@ describe Diffbot::Article do
     it "sets the parameters as received from the API" do
       article = Diffbot::Article.fetch("http://example.org")
       article.title.must_equal("The Title")
+      article.next_pages.must_equal(["http://example.org/page2"] )
     end
 
     it "can be configured by passing a block" do
