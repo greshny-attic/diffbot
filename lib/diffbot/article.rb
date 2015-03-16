@@ -1,11 +1,16 @@
 require "yajl"
+require 'hashie/extensions/dash/indifferent_access'
+require 'hashie/extensions/indifferent_access'
+require 'hashie/trash'
+require 'hashie/extensions/coercion'
 
 module Diffbot
   # Representation of an article (ie a blog post or similar). This class offers
   # a single entry point: the `.fetch` method, that, given a URL, will return
   # the article as analyzed by Diffbot.
   class Article < Hashie::Trash
-    extend CoercibleHash
+    include Hashie::Extensions::Coercion
+    include Hashie::Extensions::IndifferentAccess
 
     # Public: Fetch an article from a URL.
     #
@@ -68,6 +73,7 @@ module Diffbot
     property :human_language, from: :humanLanguage
 
     class MediaItem < Hashie::Trash
+      include Hashie::Extensions::IndifferentAccess
       property :type
       property :link
       property :primary, default: false
@@ -82,9 +88,10 @@ module Diffbot
     # primary - Only present in one of the items. This is assumed to be the most
     #           representative media for this article.
     property :media
-    coerce_property :media, collection: MediaItem
+    coerce_key :media, Array[MediaItem]
 
     class ImageItem < Hashie::Trash
+      include Hashie::Extensions::IndifferentAccess
       property :url
       property :pixel_height, from: :pixelHeight
       property :pixel_width,  from: :pixelWidth
@@ -100,8 +107,7 @@ module Diffbot
     # pixel_weight - Image width, in pixels.
     # caption      - Diffbot-determined best caption for the image, if detected.
     # primary      - Returns "true" if image is identified as primary.
-    property :images
-    coerce_property :images, collection: ImageItem
+    coerce_key :images, Array[ImageItem]
 
     # Public: The raw text of the article, without formatting.
     property :text
@@ -135,6 +141,7 @@ module Diffbot
     property :supertags
 
     class VideoItem < Hashie::Trash
+      include Hashie::Extensions::IndifferentAccess
       property :url
       property :pixel_height, from: :pixelHeight
       property :pixel_width,  from: :pixelWidth
@@ -147,10 +154,10 @@ module Diffbot
     # pixel_height - Video height, in pixels, if accessible.
     # pixel_width  - Video width, in pixels, if accessible.
     # primary      - Returns "true" if the video is identified as primary.
-    property :videos
-    coerce_property :videos, collection: VideoItem
+    coerce_key :videos, Array[VideoItem]
 
     class Stats < Hashie::Trash
+      include Hashie::Extensions::IndifferentAccess
       property :fetch_time, from: :fetchTime
       property :confidence
     end
@@ -162,8 +169,7 @@ module Diffbot
     #              the text of the article. Between 0.0 and 1.0.
     #
     # Only present if you set `stats` to true in the request.
-    property :stats
-    coerce_property :stats, class: Stats
+    coerce_key :stats, Stats
 
     # Public: The XPath selector at which the body of the article was found in
     # the page.
@@ -203,6 +209,7 @@ module Diffbot
     property :type
 
     class RequestParams < Hashie::Trash
+      include Hashie::Extensions::IndifferentAccess
       # Public: Set to true to return HTML instead of plain-text.
       #
       # Defaults to nil.

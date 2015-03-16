@@ -3,7 +3,7 @@ PATH
   specs:
     diffbot (0.1.7)
       excon
-      hashie
+      hashie (= 3.3.2)
       nokogiri (~> 1.5.0)
       yajl-ruby
 
@@ -12,19 +12,26 @@ GEM
   specs:
     codeclimate-test-reporter (0.4.1)
       simplecov (>= 0.7.1, < 1.0.0)
+    coderay (1.1.0)
     docile (1.1.5)
-    excon (0.20.1)
-    hashie (2.0.3)
+    excon (0.43.0)
+    hashie (3.3.2)
+    method_source (0.8.2)
     minitest (4.7.0)
     multi_json (1.10.1)
-    nokogiri (1.5.10)
+    nokogiri (1.5.11)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rake (10.0.4)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    yajl-ruby (1.1.0)
+    slop (3.6.0)
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
@@ -34,4 +41,5 @@ DEPENDENCIES
   codeclimate-test-reporter
   diffbot!
   minitest
+  pry
   rake
