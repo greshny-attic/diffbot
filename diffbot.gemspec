@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "diffbot"
-  s.version     = "0.1.7"
+  s.version     = "0.1.8"
   s.description = "Diffbot provides a concise API for analyzing and extracting semantic information from web pages using Diffbot (http://www.diffbot.com)."
   s.summary     = "Ruby interface to the Diffbot API "
   s.authors     = ["Nicolas Sanguinetti", "Roman Greshny"]
