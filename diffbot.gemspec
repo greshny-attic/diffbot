@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency("nokogiri", "~> 1.6.8")
   s.add_dependency("hashie", "3.3.2")
 
-  s.add_development_dependency("bundler", "~> 1.3")
+  s.add_development_dependency("bundler")
   s.add_development_dependency("minitest")
   s.add_development_dependency("pry")
 end
