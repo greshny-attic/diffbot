@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    diffbot (0.1.11)
+    diffbot (0.1.12)
       excon
       hashie
       nokogiri
@@ -20,7 +20,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (4.7.0)
     multi_json (1.10.1)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.0)
       mini_portile2 (~> 2.1.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
