@@ -7,6 +7,8 @@ module Diffbot
   # by Diffbot.
   class Product < Hashie::Trash
     extend CoercibleHash
+    include Hashie::Extensions::Coercion
+    include Hashie::Extensions::IndifferentAccess
     # Public: The Product API analyzes a shopping or e-commerce product page
     #         and returns information on the product.
     #

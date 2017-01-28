@@ -7,6 +7,8 @@ module Diffbot
   # by Diffbot.
   class Frontpage < Hashie::Trash
     extend CoercibleHash
+    include Hashie::Extensions::Coercion
+    include Hashie::Extensions::IndifferentAccess
 
     # Public: Fetch a frontpage's information from a URL.
     #
