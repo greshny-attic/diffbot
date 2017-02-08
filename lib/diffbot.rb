@@ -1,4 +1,4 @@
-require "hashie/trash"
+require "hashie"
 require "diffbot/coercible_hash"
 require "diffbot/request"
 require "diffbot/article"
