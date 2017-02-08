@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    diffbot (0.1.13)
+    diffbot (0.1.14)
       excon
       hashie
       nokogiri (~> 1.6.8.1)
@@ -47,4 +47,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.13.2
+   1.14.3
