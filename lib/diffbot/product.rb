@@ -37,6 +37,8 @@ module Diffbot
     end
 
     class Breadcrumb < Hashie::Trash
+      include Hashie::Extensions::IndifferentAccess
+
       property :name
       property :link
     end
