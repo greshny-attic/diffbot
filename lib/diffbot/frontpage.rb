@@ -23,7 +23,7 @@ module Diffbot
     #   frontpage = Diffbot::Frontpage.fetch(url, api_token)
     #
     # Returns a Diffbot::Frontpage.
-    def self.fetch(url, token=Diffbot.token, parser=Diffbot::Frontpage::DmlParser.method(:parse))
+    def self.fetch(url, token=Diffbot.token, parser=Yajl::Parser.method(:parse))
       request = Diffbot::Request.new(token)
       response = request.perform(:get, endpoint) do |req|
         req[:query][:url] = url
@@ -38,6 +38,12 @@ module Diffbot
     def self.endpoint
       "http://www.diffbot.com/api/frontpage"
     end
+
+    property :type
+
+    property :url
+
+    property :sections
 
     # Public: The title of the page.
     property :title
@@ -57,5 +63,3 @@ module Diffbot
     coerce_property :items, collection: Item
   end
 end
-
-require "diffbot/frontpage/dml_parser"
