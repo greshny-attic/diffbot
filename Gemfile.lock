@@ -4,7 +4,7 @@ PATH
     diffbot (0.1.17)
       excon
       hashie
-      nokogiri (~> 1.7.1)
+      nokogiri (~> 1.7.2)
       yajl-ruby
 
 GEM
