@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    diffbot (0.1.17)
+    diffbot (0.1.18)
       excon
       hashie
-      nokogiri (~> 1.7.2)
+      nokogiri (~> 1.8.1)
       yajl-ruby
 
 GEM
@@ -14,14 +14,14 @@ GEM
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     docile (1.1.5)
-    excon (0.55.0)
-    hashie (3.5.5)
+    excon (0.59.0)
+    hashie (3.5.6)
     method_source (0.8.2)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.3.0)
     minitest (4.7.0)
     multi_json (1.10.1)
-    nokogiri (1.7.2)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)

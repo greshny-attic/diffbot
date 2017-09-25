@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "diffbot"
-  s.version     = "0.1.17"
+  s.version     = "0.1.18"
   s.description = "Diffbot provides a concise API for analyzing and extracting semantic information from web pages using Diffbot (http://www.diffbot.com)."
   s.summary     = "Ruby interface to the Diffbot API "
   s.authors     = ["Nicolas Sanguinetti", "Roman Greshny"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency("excon")
   s.add_dependency("yajl-ruby")
-  s.add_dependency("nokogiri", "~> 1.7.2")
+  s.add_dependency("nokogiri", "~> 1.8.1")
   s.add_dependency("hashie")
 
   s.add_development_dependency("bundler")
