@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    diffbot (0.1.18)
+    diffbot (0.1.19)
       excon
       hashie
       nokogiri (~> 1.8.1)
