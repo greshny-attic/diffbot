@@ -6,7 +6,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Nicolas Sanguinetti", "Roman Greshny"]
   s.email       = ["hi@nicolassanguinetti.info", "greshny@gmail.com"]
   s.homepage    = "http://github.com/greshny/diffbot"
-  s.has_rdoc    = false
   s.files       = `git ls-files`.split "\n"
   s.platform    = Gem::Platform::RUBY
 
