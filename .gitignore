@@ -1,3 +1,4 @@
 /pkg
 .rvm*
 coverage
+.ruby-version
